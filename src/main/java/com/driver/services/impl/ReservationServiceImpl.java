@@ -34,7 +34,7 @@ public class ReservationServiceImpl implements ReservationService {
         boolean isSpotAvailable = false;
         for(Spot spot : spotList)
         {
-            if(spot.isOccupied() == false)
+            if(spot.getOccupied() == false)
             {
                 isSpotAvailable = true;
                 break;
@@ -55,7 +55,7 @@ public class ReservationServiceImpl implements ReservationService {
         {
             if(spotType.equals(SpotType.OTHERS) && spot.getSpotType().equals(SpotType.OTHERS))
             {
-                if(spot.getPricePerHour() * timeInHours < minPrice && spot.isOccupied() == false)
+                if(spot.getPricePerHour() * timeInHours < minPrice && spot.getOccupied() == false)
                 {
                     minPrice = spot.getPricePerHour() * timeInHours;
                     isSpotAvailable = true;
@@ -65,7 +65,7 @@ public class ReservationServiceImpl implements ReservationService {
             else if(spotType.equals(SpotType.FOUR_WHEELER) && spot.getSpotType().equals(SpotType.OTHERS)
                     || spot.getSpotType().equals(SpotType.FOUR_WHEELER))
             {
-                if(spot.getPricePerHour() * timeInHours < minPrice && spot.isOccupied() == false)
+                if(spot.getPricePerHour() * timeInHours < minPrice && spot.getOccupied() == false)
                 {
                     minPrice = spot.getPricePerHour() * timeInHours;
                     isSpotAvailable = true;
@@ -75,7 +75,7 @@ public class ReservationServiceImpl implements ReservationService {
             else if(spotType.equals(SpotType.TWO_WHEELER) && spot.getSpotType().equals(SpotType.OTHERS)
             || spot.getSpotType().equals(SpotType.FOUR_WHEELER) || spot.getSpotType().equals(SpotType.TWO_WHEELER))
             {
-                if(spot.getPricePerHour() * timeInHours < minPrice && spot.isOccupied() == false)
+                if(spot.getPricePerHour() * timeInHours < minPrice && spot.getOccupied() == false)
                 {
                     minPrice = spot.getPricePerHour() * timeInHours;
                     isSpotAvailable = true;
